@@ -1,6 +1,6 @@
 {
   "variables": {
-    "prefix": "mbeham"
+    "prefix": "dheerema"
   },
   "builders": [{
     "type": "amazon-ebs",
@@ -19,5 +19,18 @@
     "ami_name": "{{user `prefix`}}-static-{{timestamp}}"
   }],
   "provisioners": [
+      {
+	       "type": "shell",
+	        "script": "scripts/install_nginx.sh"
+      },
+      {
+  	     "type": "file",
+  	     "source": "assets/index.html",
+  	     "destination": "index.html"
+      },
+      {
+	    "type": "shell",
+	    "inline": ["sudo mv -v index.html /var/www/html/index.html"]
+      }
   ]
 }
