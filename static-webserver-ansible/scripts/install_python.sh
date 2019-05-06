@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Do installation of nodejs here
+# Do installation of python here
 
 sudo bash -e <<SCRIPT
-apt-get install -y python
+apt-get install -y python3
 SCRIPT
