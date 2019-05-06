@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
+
+
 # git clone nodejs app
-git clone https://github.com/dhpizza/nodejs-demo-app.git
+git clone https://github.com/dhpizza/nodejs-demo-app.git /home/ubuntu/sample-node-app/
 # go to install dir and install packages
-cd nodejs-demo-app
+cd /home/ubuntu/sample-node-app/
 npm install
+sudo bash -ex <<SCRIPT
 # move system d file to
-mv -v contrib/hello.service /etc/systemd/system/hello.service
+cp -p /home/ubuntu/sample-node-app/contrib/hello.service /etc/systemd/system/hello.service
 #enable sytsem unit file
-sudo systemctl enable hello.service
+systemctl enable hello.service
+SCRIPT

@@ -2,5 +2,8 @@
 
 # Do installation of nodejs here
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo bash -e <<SCRIPT
+apt-get install -y curl
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+apt-get install -y nodejs
+SCRIPT
