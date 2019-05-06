@@ -20,8 +20,12 @@
   }],
   "provisioners": [
       {
-	       "type": "shell",
-	        "script": "scripts/install_nginx.sh"
+         "type": "shell",
+          "script": "../common/scripts/ubuntu/base.sh"
+      },
+      {
+         "type": "shell",
+          "script": "scripts/install_nginx.sh"
       },
       {
   	     "type": "file",
@@ -29,8 +33,12 @@
   	     "destination": "index.html"
       },
       {
-	    "type": "shell",
-	    "inline": ["sudo mv -v index.html /var/www/html/index.html"]
-      }
+      "type": "shell",
+      "inline": ["sudo mv -v index.html /var/www/html/index.html"]
+    },
+    {
+       "type": "shell",
+        "script": "../common/scripts/ubuntu/cleanup.sh"
+    }
   ]
 }
