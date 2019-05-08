@@ -8,10 +8,3 @@ resource "aws_vpc" "vpc" {
     Name = "${var.prefix}"
   }
 }
-
-
-
-
-
-
-
